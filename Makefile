@@ -101,6 +101,8 @@ $(BUILD_DIR)/$(KERNEL_DIR)/.unpacked: $(KERNEL_PACKAGE)
 	unxz < $(KERNEL_PACKAGE) | tar -C $(BUILD_DIR) -xf -
 	: > $(BUILD_DIR)/$(KERNEL_DIR)/.unpacked
 
+pull: $(KERNEL_PACKAGE)
+
 $(KERNEL_PACKAGE):
 	echo -e "\n\e[1m\e[33m====== Retrieving kernel tarball... ======\e[0m"
 	wget $(KERNEL_URL)
