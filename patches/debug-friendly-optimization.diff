@@ -1,0 +1,26 @@
+--- a/Makefile	2014-09-10 11:46:09.950626806 +0300
++++ b/Makefile	2014-09-10 11:46:38.318340483 +0300
+@@ -244,8 +244,8 @@
+ 
+ HOSTCC       = gcc
+ HOSTCXX      = g++
+-HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
+-HOSTCXXFLAGS = -O2
++HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -Og -fomit-frame-pointer
++HOSTCXXFLAGS = -Og
+ 
+ # Decide whether to build built-in, modular, or both.
+ # Normally, just do built-in.
+@@ -579,11 +579,7 @@
+ # Defaults to vmlinux, but the arch makefile usually adds further targets
+ all: vmlinux
+ 
+-ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
+-KBUILD_CFLAGS	+= -Os $(call cc-disable-warning,maybe-uninitialized,)
+-else
+-KBUILD_CFLAGS	+= -O2
+-endif
++KBUILD_CFLAGS	+= -Og
+ 
+ include $(srctree)/arch/$(SRCARCH)/Makefile
+ 
