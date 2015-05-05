@@ -89,7 +89,7 @@ index 3df3bd5..307bf75 100644
 +  }
 +
 +  for (;;) {
-+    len = out->f_op->read(out, buf, sizeof(buf), &out->f_pos);
++    len = __vfs_read(out, buf, sizeof(buf), &out->f_pos);
 +    if (len < 0) {
 +      mconsole_reply(req, "reading output failed", 1, 0);
 +      break;
